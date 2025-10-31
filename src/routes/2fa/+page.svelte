@@ -12,7 +12,7 @@
       await Swal("Email must be entered", "", "error");
       return;
     }
-    const res = await fetch("http://192.168.1.2:4000/send-otp", {
+    const res = await fetch("https://report-card-gen-back-end.vercel.app//send-otp", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email }),
@@ -29,7 +29,7 @@
       await Swal("Email must be entered", "", "error");
       return;
     }
-    const res = await fetch("http://192.168.1.2:4000/verify-otp", {
+    const res = await fetch("https://report-card-gen-back-end.vercel.app//verify-otp", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, otp }),
