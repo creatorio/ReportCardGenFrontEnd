@@ -1,6 +1,6 @@
 <script>
   import Swal from "sweetalert";
-  import { pb } from "$lib/Pocketbase";
+  import { pb } from "$lib/pocketbase";
   import { goto } from "$app/navigation";
 
   let email = "";
