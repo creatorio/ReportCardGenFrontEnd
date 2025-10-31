@@ -1,7 +1,7 @@
 <script>
   import { goto } from "$app/navigation";
   import Swal from "sweetalert";
-  import { pb, curruntUser } from "$lib/Pocketbase.js";
+  import { pb, curruntUser } from "$lib/pocketbase.js";
   let email = "";
   let otp = "";
   let sent = false;

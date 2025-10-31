@@ -2,7 +2,7 @@
 <script>
   import { onMount } from "svelte";
   import { goto } from "$app/navigation";
-  import { pb } from "$lib/Pocketbase.js";
+  import { pb } from "$lib/pocketbase.js";
   onMount(() => {
     captcha();
   });
