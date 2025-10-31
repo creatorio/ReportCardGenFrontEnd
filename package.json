@@ -20,6 +20,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-vercel": "^6.1.1",
 		"browser": "^0.2.6",
 		"pocketbase": "^0.21.5",
 		"swal": "^0.1.0",
