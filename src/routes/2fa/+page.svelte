@@ -11,12 +11,18 @@
     if (email == "") {
       await Swal("Email must be entered", "", "error");
       return;
+    } else if (email != localStorage.getItem("username")) {
+      await Swal("Email is incorrect", "", "error");
+      return;
     }
-    const res = await fetch("https://report-card-gen-back-end.vercel.app//send-otp", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
-    });
+    const res = await fetch(
+      "https://report-card-gen-back-end.vercel.app//send-otp",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      }
+    );
     if (res.ok) {
       sent = true;
       message = "OTP sent to your email!";
@@ -29,11 +35,14 @@
       await Swal("Email must be entered", "", "error");
       return;
     }
-    const res = await fetch("https://report-card-gen-back-end.vercel.app//verify-otp", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, otp }),
-    });
+    const res = await fetch(
+      "https://report-card-gen-back-end.vercel.app//verify-otp",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, otp }),
+      }
+    );
     if (res.ok) {
       message = "Verification successful! Redirecting...";
       let typets = localStorage.getItem("typets");
