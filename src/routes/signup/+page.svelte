@@ -4,7 +4,7 @@
   import { goto } from "$app/navigation";
   import { pb } from "$lib/pocketbase";
   import Swal from "sweetalert";
-  import Global from "$lib/Global";
+  import Global from "$lib/global";
   onMount(() => {
     captcha();
   });
