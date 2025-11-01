@@ -16,7 +16,7 @@
       return;
     }
     const res = await fetch(
-      "https://report-card-gen-back-end.vercel.app//send-otp",
+      "https://report-card-gen-back-end.vercel.app/send-otp",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -36,7 +36,7 @@
       return;
     }
     const res = await fetch(
-      "https://report-card-gen-back-end.vercel.app//verify-otp",
+      "https://report-card-gen-back-end.vercel.app/verify-otp",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
