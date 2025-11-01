@@ -222,14 +222,6 @@
           >
         </button>
       </div>
-      <div class="captcha-form">
-        <input
-          type="text"
-          class="form-control bg-dark text-light border border-light border-2 mt-2"
-          placeholder="Enter Teacher's code"
-          bind:value={Code}
-        />
-      </div>
     </div>
     <div class="p w-75 mx-auto">
       <h6>
@@ -260,7 +252,7 @@
     margin: 15px 0px;
   }
   .preview {
-    background-color:#212529;
+    background-color: #212529;
     color: #555;
     width: 100%;
     text-align: center;
