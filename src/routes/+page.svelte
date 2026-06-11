@@ -31,7 +31,10 @@
           This is a platform for managing student's marks and general data and
           for students to view it.
         </p>
-        <p>Click signup to get started</p>
+        <p>
+          Click signup to get started(Only Teachers Student Accounts are created
+          by teacher or administrator)
+        </p>
       </div>
     </div>
   </div>

@@ -11,7 +11,7 @@
     if (email == "") {
       await Swal("Email must be entered", "", "error");
       return;
-    } else if (email != localStorage.getItem("username")) {
+    } else if (email != JSON.parse(localStorage.getItem("data")).email) {
       await Swal("Email is incorrect", "", "error");
       return;
     }
@@ -21,7 +21,7 @@
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
-      }
+      },
     );
     if (res.ok) {
       sent = true;
@@ -41,24 +41,27 @@
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp }),
-      }
+      },
     );
     if (res.ok) {
       message = "Verification successful! Redirecting...";
       let typets = localStorage.getItem("typets");
-      let username = localStorage.getItem("username");
-      let password = localStorage.getItem("password");
+      let signup = localStorage.getItem("signup");
+      let data = JSON.parse(localStorage.getItem("data"));
       localStorage.clear("typets");
-      localStorage.clear("username");
-      localStorage.clear("password");
+      localStorage.clear("data");
       try {
-        await pb.collection(typets).authWithPassword(username, password);
+        if (typets == "Teachers" && signup == "true") {
+          await pb.collection("Teachers").create(data);
+        }
+        await pb.collection(typets).authWithPassword(data.email, data.password);
       } catch (error) {
         await swal({
           title: error.message,
           text: error.data.details,
           icon: "error",
         });
+        goto("/login");
         return;
       }
 

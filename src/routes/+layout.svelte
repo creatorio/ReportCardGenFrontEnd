@@ -1,5 +1,9 @@
 <script>
   import { onMount } from "svelte";
+  import { page } from "$app/stores";
+  import { pb } from "$lib/pocketbase";
+  import { browser } from "$app/environment";
+  import { goto } from "$app/navigation";
 
   let canvas;
   let ctx;
@@ -34,7 +38,7 @@
         0,
         canvas.width / 2,
         canvas.height / 2,
-        Math.max(canvas.width, canvas.height)
+        Math.max(canvas.width, canvas.height),
       );
       gradientBg.addColorStop(0, "#ffffff");
       gradientBg.addColorStop(0.5, "#000000");
@@ -54,7 +58,7 @@
           2,
           b.x,
           b.y,
-          b.size
+          b.size,
         );
         gradient.addColorStop(0, b.color);
         gradient.addColorStop(1, "transparent");
@@ -75,6 +79,13 @@
       window.removeEventListener("resize", resize);
     };
   });
+  if (
+    !($page.url.pathname === "/login" || $page.url.pathname === "/signup") &&
+    !pb.authStore.model &&
+    browser
+  ) {
+    goto("/login");
+  }
 </script>
 
 <canvas bind:this={canvas}></canvas>

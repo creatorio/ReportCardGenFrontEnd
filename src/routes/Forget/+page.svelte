@@ -56,12 +56,9 @@
         />
       </div>
       <select
-        name="Type"
+        name="Account Type"
         class="form-select mb-2 bg-dark text-light border border-light border-2"
         bind:value={typets}
-        on:change={() => {
-          console.log(typets);
-        }}
         ><option value="Teachers">Teacher</option><option value="Students"
           >Student</option
         ></select

@@ -35,7 +35,6 @@
           const rotate = Math.round(Math.random() * 40);
           const font = Math.trunc(Math.random() * fonts.length);
           const fsize = Math.random() * 40;
-          console.log(rotate);
           return `<span 
         style="
           transform:rotate(${rotate}deg);
@@ -106,11 +105,8 @@
         !errors.captcha == ""
       ) {
         throw errors;
-      } else {
-        await pb.collection("Teachers").create(data);
       }
     } catch (error) {
-      console.log(error.data);
       if (!error.errors) {
         let keys = Object.keys(error.data.data);
         let arr = Object.values(error.data.data);
@@ -138,8 +134,9 @@
       return;
     }
     localStorage.setItem("typets", "Teachers");
-    localStorage.setItem("username", data.username);
-    localStorage.setItem("password", data.password);
+
+    localStorage.setItem("data", JSON.stringify(data));
+    localStorage.setItem("signup", "true");
     goto("/2fa");
   }
 </script>

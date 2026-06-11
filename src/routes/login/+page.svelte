@@ -6,7 +6,7 @@
   onMount(() => {
     captcha();
   });
-  let username;
+  let email;
   let password;
   let typets;
   let captchaValue = "";
@@ -57,8 +57,8 @@
     cap.input = inputCaptchaValue;
     cap.value = captchaValue;
     // Form validation
-    if (!username || !password || cap.input != cap.value) {
-      !username ? await Swal("Username Cannot Be Empty", "", "error") : "";
+    if (!email || !password || cap.input != cap.value) {
+      !email ? await Swal("Email Cannot Be Empty", "", "error") : "";
       !password ? await Swal("Password Cannot Be Empty", "", "error") : "";
       cap.input != cap.value
         ? await Swal("Incorrect Captcha", "", "error")
@@ -67,8 +67,12 @@
       return;
     }
     localStorage.setItem("typets", typets);
-    localStorage.setItem("username", username);
-    localStorage.setItem("password", password);
+    let data = {
+      email: email,
+      password: password,
+    };
+    localStorage.setItem("data", JSON.stringify(data));
+    localStorage.setItem("signup", "false");
     goto("/2fa");
   }
 </script>
@@ -82,7 +86,7 @@
     <input
       class="form-control bg-dark text-light border border-light border-2"
       id="email"
-      bind:value={username}
+      bind:value={email}
     />
   </div>
   <div class="mb-2 w-75 container mx-auto">
@@ -95,19 +99,16 @@
     />
 
     <select
-      name="Type"
+      name="Account Type"
       class="form-select mt-2 bg-dark text-light border border-light border-2"
       bind:value={typets}
-      on:change={() => {
-        console.log(typets);
-      }}
       ><option value="Teachers">Teacher</option><option value="Students"
         >Student</option
       ></select
     >
 
     <div class="captcha">
-           <label for="captcha-input" class="form-label">Captcha:</label>
+      <label for="captcha-input" class="form-label">Captcha:</label>
       <div class="preview"></div>
       <div class="captcha-form">
         <input
@@ -155,11 +156,11 @@
     display: grid;
     align-items: center;
   }
-   .captcha {
+  .captcha {
     margin: 15px 0px;
   }
   .preview {
-    background-color:#212529;
+    background-color: #212529;
     color: #555;
     width: 100%;
     text-align: center;
