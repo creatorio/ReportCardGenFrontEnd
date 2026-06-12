@@ -25,7 +25,9 @@
       },
     );
     if (res.ok) {
-      secureToken = res.message;
+      const data = await res.json();
+      secureToken = data.message;
+
       sent = true;
       message = "OTP sent to your email!";
       await Swal(message, "", "success");

@@ -25,5 +25,8 @@
 		"pocketbase": "^0.21.5",
 		"swal": "^0.1.0",
 		"sweetalert": "^2.1.2"
+	},
+	"allowScripts": {
+		"esbuild@0.25.12": true
 	}
 }

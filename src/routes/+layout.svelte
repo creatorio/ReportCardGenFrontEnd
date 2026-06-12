@@ -82,11 +82,15 @@
     };
   });
   if (
-    !(page.url.pathname === "/login" || page.url.pathname === "/signup") &&
+    !(
+      page.url.pathname === "/login" ||
+      page.url.pathname === "/signup" ||
+      page.url.pathname === "/"
+    ) &&
     !pb.authStore.model &&
     browser
   ) {
-    goto("/login");
+    //goto("/login");
   }
 </script>
 
