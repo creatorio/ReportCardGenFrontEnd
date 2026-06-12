@@ -12,6 +12,11 @@
   let blobs = [];
 
   onMount(() => {
+    const publicRoutes = ["/home", "/login", "/signup"];
+
+    if (!pb.authStore.model && !publicRoutes.includes(page.url.pathname)) {
+      goto("/home");
+    }
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -81,17 +86,6 @@
       window.removeEventListener("resize", resize);
     };
   });
-  if (
-    !(
-      page.url.pathname === "/login" ||
-      page.url.pathname === "/signup" ||
-      page.url.pathname === "/"
-    ) &&
-    !pb.authStore.model &&
-    browser
-  ) {
-    //goto("/login");
-  }
 </script>
 
 <canvas bind:this={canvas}></canvas>
