@@ -6,6 +6,7 @@
   let otp = $state("");
   let sent = $state(false);
   let message = "";
+  let secureToken;
 
   async function sendOtp() {
     if (email == "") {
@@ -24,6 +25,7 @@
       },
     );
     if (res.ok) {
+      secureToken = res.message;
       sent = true;
       message = "OTP sent to your email!";
       await Swal(message, "", "success");
@@ -32,7 +34,7 @@
 
   async function verifyOtp() {
     if (otp == "") {
-      await Swal("Email must be entered", "", "error");
+      await Swal("OTP must be entered", "", "error");
       return;
     }
     const res = await fetch(
@@ -40,7 +42,7 @@
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, otp }),
+        body: JSON.stringify({ email, otp, secureToken }),
       },
     );
     if (res.ok) {
