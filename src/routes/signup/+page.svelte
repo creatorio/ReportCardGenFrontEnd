@@ -149,52 +149,56 @@
       Create A New Account(Only Teachers)
     </h3>
     <table class="mx-auto w-60 mt-2">
-      <tr>
-        <td
-          ><div class="mb-2 mx-1 w-40 container">
-            <label for="name" class="form-label">Email:</label>
-            <input
-              class="form-control bg-dark text-light border border-light border-2"
-              id="name"
-              bind:value={formData.email}
-            />
-          </div>
-        </td>
-        <td
-          ><div class="mb-2 mx-1 w-40 container">
-            <label for="email" class="form-label">Username:</label>
-            <input
-              class="form-control bg-dark text-light border border-light border-2"
-              id="email"
-              bind:value={formData.username}
-            />
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td
-          ><div class="mb-2 mx-1 w-40 container">
-            <label for="password" class="form-label">Password:</label>
-            <input
-              type="password"
-              class="form-control bg-dark text-light border border-light border-2"
-              id="password"
-              bind:value={formData.password}
-            />
-          </div>
-        </td>
-        <td>
-          <div class="mb-2 mx-1 w-40 container">
-            <label for="confirmPassword" class="form-label">Confirm Pwd:</label>
-            <input
-              type="password"
-              class="form-control bg-dark text-light border border-light border-2"
-              id="confirmPassword"
-              bind:value={formData.passwordConfirm}
-            />
-          </div>
-        </td>
-      </tr>
+      <tbody>
+        <tr>
+          <td
+            ><div class="mb-2 mx-1 w-40 container">
+              <label for="name" class="form-label">Email:</label>
+              <input
+                class="form-control bg-dark text-light border border-light border-2"
+                id="name"
+                bind:value={formData.email}
+              />
+            </div>
+          </td>
+          <td
+            ><div class="mb-2 mx-1 w-40 container">
+              <label for="email" class="form-label">Username:</label>
+              <input
+                class="form-control bg-dark text-light border border-light border-2"
+                id="email"
+                bind:value={formData.username}
+              />
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            ><div class="mb-2 mx-1 w-40 container">
+              <label for="password" class="form-label">Password:</label>
+              <input
+                type="password"
+                class="form-control bg-dark text-light border border-light border-2"
+                id="password"
+                bind:value={formData.password}
+              />
+            </div>
+          </td>
+          <td>
+            <div class="mb-2 mx-1 w-40 container">
+              <label for="confirmPassword" class="form-label"
+                >Confirm Pwd:</label
+              >
+              <input
+                type="password"
+                class="form-control bg-dark text-light border border-light border-2"
+                id="confirmPassword"
+                bind:value={formData.passwordConfirm}
+              />
+            </div>
+          </td>
+        </tr>
+      </tbody>
     </table>
     <div class="captcha w-75 mx-auto">
       <label for="captcha-input" class="form-label">Captcha:</label>

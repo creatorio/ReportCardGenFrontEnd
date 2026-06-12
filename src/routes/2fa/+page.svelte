@@ -2,9 +2,9 @@
   import { goto } from "$app/navigation";
   import Swal from "sweetalert";
   import { pb, curruntUser } from "$lib/pocketbase.js";
-  let email = "";
-  let otp = "";
-  let sent = false;
+  let email = $state("");
+  let otp = $state("");
+  let sent = $state(false);
   let message = "";
 
   async function sendOtp() {
@@ -90,7 +90,7 @@
       placeholder="Enter your email"
     />
     <button
-      on:click={sendOtp}
+      onclick={sendOtp}
       class="form-control bg-dark text-light border border-light border-2"
       >Send OTP</button
     >
@@ -102,7 +102,7 @@
       placeholder="Enter OTP"
     />
     <button
-      on:click={verifyOtp}
+      onclick={verifyOtp}
       class="form-control bg-dark text-light border border-light border-2"
       >Verify</button
     >

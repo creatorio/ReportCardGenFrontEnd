@@ -6,9 +6,9 @@
   onMount(() => {
     captcha();
   });
-  let email;
-  let password;
-  let typets;
+  let email = $state();
+  let password = $state();
+  let typets = $state();
   let captchaValue = "";
   let cap = { input: "", value: "" };
   import Swal from "sweetalert";
@@ -51,7 +51,7 @@
     }
     initCaptcha();
   }
-  let inputCaptchaValue;
+  let inputCaptchaValue = $state();
 
   async function handleSubmit() {
     cap.input = inputCaptchaValue;
@@ -145,7 +145,7 @@
       <button
         type="submit"
         class="btn btn-secondary mt-2 float-end"
-        on:click={handleSubmit}>Login</button
+        onclick={handleSubmit}>Login</button
       >
     </h6>
   </div>

@@ -3,7 +3,7 @@
   import { pb } from "$lib/pocketbase";
   import global from "$lib/global";
   import { onDestroy, onMount } from "svelte";
-  let student;
+  let student = $state();
   onMount(async () => {
     if (typeof window == "undefined") {
       return;
@@ -78,11 +78,11 @@
     />
     <button
       class="btn btn-secondary mt-2"
-      on:click={() => {
+      onclick={() => {
         goto("/teacher");
       }}>Back</button
     >
-    <button class="btn btn-secondary mt-2" on:click={update}>Update</button>
+    <button class="btn btn-secondary mt-2" onclick={update}>Update</button>
   </div>
 {/if}
 

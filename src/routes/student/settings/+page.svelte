@@ -13,13 +13,15 @@
 >
   <h3>{stu.username}</h3>
   <table class="cttb">
-    <tr><td>Phone Number:</td><td>{stu.Tele_No}</td></tr>
-    <tr><td>Address:</td><td>{stu.Address}</td></tr>
-    <tr><td>Registration Number:</td><td>{stu.Registration_No}</td></tr>
-    <tr><td>Father's Name:</td><td>{stu.FANA}</td></tr>
-    <tr><td>Mother's Name:</td><td>{stu.MONA}</td></tr>
-    <tr><td>Date Of Birth:</td><td>{stu.DOB}</td></tr>
-    <tr><td>Class:</td><td>{stu.ClassName}</td></tr>
+    <tbody>
+      <tr><td>Phone Number:</td><td>{stu.Tele_No}</td></tr>
+      <tr><td>Address:</td><td>{stu.Address}</td></tr>
+      <tr><td>Registration Number:</td><td>{stu.Registration_No}</td></tr>
+      <tr><td>Father's Name:</td><td>{stu.FANA}</td></tr>
+      <tr><td>Mother's Name:</td><td>{stu.MONA}</td></tr>
+      <tr><td>Date Of Birth:</td><td>{stu.DOB}</td></tr>
+      <tr><td>Class:</td><td>{stu.ClassName}</td></tr>
+    </tbody>
   </table>
 
   <button

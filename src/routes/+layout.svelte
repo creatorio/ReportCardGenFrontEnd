@@ -1,11 +1,13 @@
 <script>
   import { onMount } from "svelte";
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import { pb } from "$lib/pocketbase";
   import { browser } from "$app/environment";
   import { goto } from "$app/navigation";
+  /** @type {{children?: import('svelte').Snippet}} */
+  let { children } = $props();
 
-  let canvas;
+  let canvas = $state();
   let ctx;
   let blobs = [];
 
@@ -80,7 +82,7 @@
     };
   });
   if (
-    !($page.url.pathname === "/login" || $page.url.pathname === "/signup") &&
+    !(page.url.pathname === "/login" || page.url.pathname === "/signup") &&
     !pb.authStore.model &&
     browser
   ) {
@@ -93,7 +95,7 @@
 <main
   class="d-flex flex-column justify-content-center align-items-center min-vh-100"
 >
-  <slot />
+  {@render children?.()}
 </main>
 
 <style>

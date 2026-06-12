@@ -150,36 +150,40 @@
           <div class="table-responsive-md">
             <table class="tabla stu w-75" bind:this={table}>
               <thead class="bg-secondary">
-                <th>Name</th>
-                <th>View Grades</th>
-                <th>Edit</th>
-                <th>Delete</th>
-              </thead>
-              {#each students as student, index}
-                <tr class="bg-secondary">
-                  <td>{student.username}</td>
-                  <td
-                    role="button"
-                    on:click={() => {
-                      display(student.id, student.username);
-                      seegrd = true;
-                    }}
-                  >
-                    View Grades
-                  </td>
-                  <td
-                    role="button"
-                    on:click={() => {
-                      goto("/teacher/editStudent");
-                      global.stuid = student.id;
-                    }}>Edit</td
-                  >
-                  <td
-                    role="button"
-                    on:click={deletestuff("Students", student.id)}>Delete</td
-                  >
+                <tr>
+                  <th>Name</th>
+                  <th>View Grades</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
                 </tr>
-              {/each}
+              </thead>
+              <tbody>
+                {#each students as student, index}
+                  <tr class="bg-secondary">
+                    <td>{student.username}</td>
+                    <td
+                      role="button"
+                      on:click={() => {
+                        display(student.id, student.username);
+                        seegrd = true;
+                      }}
+                    >
+                      View Grades
+                    </td>
+                    <td
+                      role="button"
+                      on:click={() => {
+                        goto("/teacher/editStudent");
+                        global.stuid = student.id;
+                      }}>Edit</td
+                    >
+                    <td
+                      role="button"
+                      on:click={deletestuff("Students", student.id)}>Delete</td
+                    >
+                  </tr>
+                {/each}
+              </tbody>
             </table>
           </div>
           <button class="btn btn-secondary w-75 mt-2 mt-3" on:click={addstu}>
@@ -200,27 +204,31 @@
           <div class="table-responsive-md">
             <table class="tabla grd w-75">
               <thead class="bg-secondary">
-                <th>Marks/M.M.</th>
-                <th>Grade</th>
-                <th>Type</th>
-                <th>Subject</th>
-                <th>Result</th>
-                <th>Remark</th>
-                <th>Delete</th>
-              </thead>
-              {#each grades as grade, d}
-                <tr class="bg-secondary">
-                  <td>{grade.ScoreValue}/{grade.maxmrk}</td>
-                  <td>{grade.Grade}</td>
-                  <td>{grade.Type}</td>
-                  <td>{grade.Subject}</td>
-                  <td>{grade.Result}</td>
-                  <td>{grade.Remark}</td>
-                  <td on:click={deletestuff("Grades", grade.id)} role="button"
-                    >Delete
-                  </td>
+                <tr>
+                  <th>Marks/M.M.</th>
+                  <th>Grade</th>
+                  <th>Type</th>
+                  <th>Subject</th>
+                  <th>Result</th>
+                  <th>Remark</th>
+                  <th>Delete</th>
                 </tr>
-              {/each}
+              </thead>
+              <tbody>
+                {#each grades as grade, d}
+                  <tr class="bg-secondary">
+                    <td>{grade.ScoreValue}/{grade.maxmrk}</td>
+                    <td>{grade.Grade}</td>
+                    <td>{grade.Type}</td>
+                    <td>{grade.Subject}</td>
+                    <td>{grade.Result}</td>
+                    <td>{grade.Remark}</td>
+                    <td on:click={deletestuff("Grades", grade.id)} role="button"
+                      >Delete
+                    </td>
+                  </tr>
+                {/each}
+              </tbody>
             </table>
           </div>
         </div>

@@ -30,31 +30,35 @@
     >
     <table class="tabla stu">
       <thead class="bg-secondary">
-        <th>Name</th>
-        <th>
-          <select bind:value={param} class="bg-secondary border-0">
-            <option value="Tele_No">Phone Number</option>
-            <option value="Address">Address</option>
-            <option value="Registration_No">Registration Number</option>
-            <option value="FANA">Father's Name</option>
-            <option value="MONA">Mother's Name</option>
-            <option value="DOB">Date OF Birth</option>
-            <option value="ClassName">Class And Section</option></select
-          ></th
-        >
-      </thead>
-      {#each students as student}
-        <tr class="bg-secondary">
-          <td>{student.username}</td>
-          <td>
-            {#if student[param] != ""}
-              {student[param]}
-            {:else}
-              Data Not Entered
-            {/if}
-          </td>
+        <tr>
+          <th>Name</th>
+          <th>
+            <select bind:value={param} class="bg-secondary border-0">
+              <option value="Tele_No">Phone Number</option>
+              <option value="Address">Address</option>
+              <option value="Registration_No">Registration Number</option>
+              <option value="FANA">Father's Name</option>
+              <option value="MONA">Mother's Name</option>
+              <option value="DOB">Date OF Birth</option>
+              <option value="ClassName">Class And Section</option>
+            </select>
+          </th>
         </tr>
-      {/each}
+      </thead>
+      <tbody>
+        {#each students as student}
+          <tr class="bg-secondary">
+            <td>{student.username}</td>
+            <td>
+              {#if student[param] != ""}
+                {student[param]}
+              {:else}
+                Data Not Entered
+              {/if}
+            </td>
+          </tr>
+        {/each}
+      </tbody>
     </table>
   </div>
 </div>

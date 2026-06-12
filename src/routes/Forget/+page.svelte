@@ -3,8 +3,8 @@
   import { pb } from "$lib/pocketbase";
   import { goto } from "$app/navigation";
 
-  let email = "";
-  let typets;
+  let email = $state("");
+  let typets = $state();
 
   async function sendResetLink() {
     if (!email) {
@@ -65,7 +65,7 @@
       >
 
       <div class="d-grid">
-        <button on:click={sendResetLink} class="btn btn-secondary">
+        <button onclick={sendResetLink} class="btn btn-secondary">
           Send Reset Link
         </button>
       </div>

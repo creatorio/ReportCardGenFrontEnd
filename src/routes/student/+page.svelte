@@ -55,23 +55,27 @@
       <div class="table-responsive-md">
         <table class="tabla grd w-75">
           <thead class="bg-secondary">
-            <th>Marks/M.M.</th>
-            <th>Grade</th>
-            <th>Type</th>
-            <th>Subject</th>
-            <th>Result</th>
-            <th>Remark</th>
+            <tr
+              ><th>Marks/M.M.</th>
+              <th>Grade</th>
+              <th>Type</th>
+              <th>Subject</th>
+              <th>Result</th>
+              <th>Remark</th></tr
+            >
           </thead>
-          {#each grades as grade, d}
-            <tr class="bg-secondary">
-              <td>{grade.ScoreValue}/{grade.maxmrk}</td>
-              <td>{grade.Grade}</td>
-              <td>{grade.Type}</td>
-              <td>{grade.Subject}</td>
-              <td>{grade.Result}</td>
-              <td>{grade.Remark}</td>
-            </tr>
-          {/each}
+          <tbody>
+            {#each grades as grade, d}
+              <tr class="bg-secondary">
+                <td>{grade.ScoreValue}/{grade.maxmrk}</td>
+                <td>{grade.Grade}</td>
+                <td>{grade.Type}</td>
+                <td>{grade.Subject}</td>
+                <td>{grade.Result}</td>
+                <td>{grade.Remark}</td>
+              </tr>
+            {/each}
+          </tbody>
         </table>
       </div>
     </div>

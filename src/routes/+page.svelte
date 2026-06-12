@@ -13,13 +13,13 @@
       <div class="col-6">
         <button
           class="btn btn-secondary float-end"
-          on:click={() => {
+          onclick={() => {
             goto("/login");
           }}>Login</button
         >
         <button
           class="btn btn-secondary float-end me-3"
-          on:click={() => {
+          onclick={() => {
             goto("/signup");
           }}>Sign Up</button
         >
