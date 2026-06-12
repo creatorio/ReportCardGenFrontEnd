@@ -1,6 +1,6 @@
 <script>
   import { goto } from "$app/navigation";
-  import browser from "browser";
+  import { browser } from "$app/environment";
   if (browser) {
     goto("/home");
   }
