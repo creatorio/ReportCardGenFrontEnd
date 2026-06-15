@@ -4,7 +4,7 @@
   import { goto } from "$app/navigation";
 
   let email = $state("");
-  let typets = $state();
+  let typets = $state("Select Account Type");
 
   async function sendResetLink() {
     if (!email) {
@@ -16,7 +16,7 @@
       await Swal(
         "Success",
         "Password reset link sent! Check your email.",
-        "success"
+        "success",
       );
       goto("/login");
     } catch (error) {
@@ -24,7 +24,7 @@
       await Swal(
         "Error",
         error.message || "Failed to send reset link",
-        "error"
+        "error",
       );
     }
   }
@@ -55,15 +55,35 @@
           required
         />
       </div>
-      <select
-        name="Account Type"
-        class="form-select mb-2 bg-dark text-light border border-light border-2"
-        bind:value={typets}
-        ><option value="Teachers">Teacher</option><option value="Students"
-          >Student</option
-        ></select
-      >
+      <div class="dropdown">
+        <button
+          class="btn btn-dark w-100 form-select mb-2 bg-dark text-light border border-light border-2 align-items-start"
+          data-bs-toggle="dropdown"
+        >
+          {typets}
+        </button>
 
+        <ul class="dropdown-menu w-100">
+          <li>
+            <button
+              class="btn mx-auto bg-dark text-light"
+              onclick={() => {
+                typets = "Teachers";
+                console.log(typets);
+              }}>Teacher</button
+            >
+          </li>
+          <li>
+            <button
+              class="btn mx-auto bg-dark text-light"
+              onclick={() => {
+                typets = "Students";
+                console.log(typets);
+              }}>Student</button
+            >
+          </li>
+        </ul>
+      </div>
       <div class="d-grid">
         <button onclick={sendResetLink} class="btn btn-secondary">
           Send Reset Link

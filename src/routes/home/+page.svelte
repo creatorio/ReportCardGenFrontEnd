@@ -7,22 +7,20 @@
     class="card p-2 m-3 w-80 mx-auto bg-dark bg-opacity-75 border-0 shadow-lg backdrop-blur text-light"
   >
     <div class="row">
-      <div class="col-6">
-        <h3 class="float-start">Welcome to grade manager</h3>
-      </div>
-      <div class="col-6">
-        <button
-          class="btn btn-secondary float-end"
-          onclick={() => {
-            goto("/login");
-          }}>Login</button
-        >
-        <button
-          class="btn btn-secondary float-end me-3"
-          onclick={() => {
-            goto("/signup");
-          }}>Sign Up</button
-        >
+      <div class="d-flex justify-content-between align-items-start">
+        <div class="flex-grow-1 me-3">
+          <h3 class="mb-0">Welcome to grade manager</h3>
+        </div>
+
+        <div class="d-flex gap-2 flex-shrink-0">
+          <button class="btn btn-secondary" onclick={() => goto("/signup")}>
+            Sign Up
+          </button>
+
+          <button class="btn btn-secondary" onclick={() => goto("/login")}>
+            Login
+          </button>
+        </div>
       </div>
     </div>
     <div class="row">

@@ -8,13 +8,13 @@
 >
     <h3>{pb.authStore.model.username}</h3>
   <button
-    class="btn btn-secondary my-2 mx-5 float-start"
+    class="btn btn-secondary my-2 mx-auto float-start"
     onclick={() => {
       goto("/teacher");
     }}>Back</button
   >
   <button
-    class="btn btn-secondary my-2 mx-5 float-end"
+    class="btn btn-secondary my-2 mx-auto float-end"
     onclick={() => {
       pb.authStore.clear();
       goto("/login");

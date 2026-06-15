@@ -3,7 +3,8 @@
   import { pb } from "$lib/pocketbase";
   import global from "$lib/global";
   import { onDestroy, onMount } from "svelte";
-  let param;
+  let param = "";
+  let paramLabel = "Select Data Type";
   let students = [];
   onMount(async () => {
     if (typeof window == "undefined") {
@@ -24,24 +25,90 @@
   <div class="mincontent mx-auto">
     <button
       class="btn btn-secondary mt-2 w-100"
-      on:click={() => {
+      onclick={() => {
         goto("/teacher");
       }}>Back</button
     >
+    <div class="dropdown">
+      <button
+        class="w-100 form-select mt-2 mb-2 bg-secondary align-items-start"
+        data-bs-toggle="dropdown"
+      >
+        {paramLabel}
+      </button>
+
+      <ul class="dropdown-menu w-100">
+        <li>
+          <button
+            class="dropdown-item"
+            onclick={() => {
+              param = "Tele_No";
+              paramLabel = "Phone Number";
+            }}>Phone Number</button
+          >
+        </li>
+        <li>
+          <button
+            class="dropdown-item"
+            onclick={() => {
+              param = "Address";
+              paramLabel = "Address";
+            }}>Address</button
+          >
+        </li>
+        <li>
+          <button
+            class="dropdown-item"
+            onclick={() => {
+              param = "Registration_No";
+              paramLabel = "Registration Number";
+            }}>Registration Number</button
+          >
+        </li>
+        <li>
+          <button
+            class="dropdown-item"
+            onclick={() => {
+              param = "FANA";
+              paramLabel = "Father's Name";
+            }}>Father's Name</button
+          >
+        </li>
+        <li>
+          <button
+            class="dropdown-item"
+            onclick={() => {
+              param = "MONA";
+              paramLabel = "Mother's Name";
+            }}>Mother's Name</button
+          >
+        </li>
+        <li>
+          <button
+            class="dropdown-item"
+            onclick={() => {
+              param = "DOB";
+              paramLabel = "Date Of Birth";
+            }}>Date Of Birth</button
+          >
+        </li>
+        <li>
+          <button
+            class="dropdown-item"
+            onclick={() => {
+              param = "ClassName";
+              paramLabel = "Class And Section";
+            }}>Class And Section</button
+          >
+        </li>
+      </ul>
+    </div>
     <table class="tabla stu">
       <thead class="bg-secondary">
         <tr>
           <th>Name</th>
           <th>
-            <select bind:value={param} class="bg-secondary border-0">
-              <option value="Tele_No">Phone Number</option>
-              <option value="Address">Address</option>
-              <option value="Registration_No">Registration Number</option>
-              <option value="FANA">Father's Name</option>
-              <option value="MONA">Mother's Name</option>
-              <option value="DOB">Date OF Birth</option>
-              <option value="ClassName">Class And Section</option>
-            </select>
+            {paramLabel}
           </th>
         </tr>
       </thead>
@@ -75,6 +142,11 @@
     border-collapse: separate;
     overflow: hidden;
     border-spacing: 0 8px;
+  }
+  .dropdown-menu {
+    max-height: none !important;
+    overflow: visible !important;
+    z-index: 99999 !important;
   }
   .tabla.stu tr,
   .tabla.stu thead {

@@ -148,11 +148,11 @@
     <h3 class="card-title text-center mb-4 fw-bold text-light">
       Create A New Account(Only Teachers)
     </h3>
-    <table class="mx-auto w-60 mt-2">
+    <table class="w-60 mt-2">
       <tbody>
         <tr>
           <td
-            ><div class="mb-2 mx-1 w-40 container">
+            ><div class="mb-2 w-40 container">
               <label for="name" class="form-label">Email:</label>
               <input
                 class="form-control bg-dark text-light border border-light border-2"
@@ -162,7 +162,7 @@
             </div>
           </td>
           <td
-            ><div class="mb-2 mx-1 w-40 container">
+            ><div class="mb-2 w-40 container">
               <label for="email" class="form-label">Username:</label>
               <input
                 class="form-control bg-dark text-light border border-light border-2"
@@ -174,7 +174,7 @@
         </tr>
         <tr>
           <td
-            ><div class="mb-2 mx-1 w-40 container">
+            ><div class="mb-2 w-40 container">
               <label for="password" class="form-label">Password:</label>
               <input
                 type="password"
@@ -185,7 +185,7 @@
             </div>
           </td>
           <td>
-            <div class="mb-2 mx-1 w-40 container">
+            <div class="mb-2 w-40 container">
               <label for="confirmPassword" class="form-label"
                 >Confirm Pwd:</label
               >
@@ -240,7 +240,7 @@
     backdrop-filter: blur(20px);
   }
   .w-40 {
-    width: 38.5vw;
+    width: 40vw;
   }
   .w-60 {
     width: 60vw;

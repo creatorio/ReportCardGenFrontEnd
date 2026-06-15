@@ -8,7 +8,7 @@
   });
   let email = $state();
   let password = $state();
-  let typets = $state();
+  let typets = $state("Select Account Type");
   let captchaValue = "";
   let cap = { input: "", value: "" };
   import Swal from "sweetalert";
@@ -78,7 +78,7 @@
 </script>
 
 <div
-  class="card w-75 mx-4 p-2 bg-dark bg-opacity-75 border-0 shadow-lg backdrop-blur text-light"
+  class="card d-flex justify-content-between w-75 mx-4 p-2 bg-dark bg-opacity-75 border-0 shadow-lg backdrop-blur text-light"
 >
   <h3 class="card-title text-center mb-2 fw-bold text-light">Login</h3>
   <div class="mb-2 w-75 container mx-auto">
@@ -98,14 +98,35 @@
       bind:value={password}
     />
 
-    <select
-      name="Account Type"
-      class="form-select mt-2 bg-dark text-light border border-light border-2"
-      bind:value={typets}
-      ><option value="Teachers">Teacher</option><option value="Students"
-        >Student</option
-      ></select
-    >
+ <div class="dropdown">
+        <button
+          class="btn btn-dark w-100 form-select mb-2 bg-dark text-light border border-light border-2 align-items-start"
+          data-bs-toggle="dropdown"
+        >
+          {typets}
+        </button>
+
+        <ul class="dropdown-menu w-100">
+          <li>
+            <button
+              class="btn mx-auto bg-dark text-light"
+              onclick={() => {
+                typets = "Teachers";
+                console.log(typets);
+              }}>Teacher</button
+            >
+          </li>
+          <li>
+            <button
+              class="btn mx-auto bg-dark text-light"
+              onclick={() => {
+                typets = "Students";
+                console.log(typets);
+              }}>Student</button
+            >
+          </li>
+        </ul>
+      </div>
 
     <div class="captcha">
       <label for="captcha-input" class="form-label">Captcha:</label>
